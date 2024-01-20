@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ClientTable from '../ClientTable';
+import './styles.scss';
 
 const ClientList = () => {
   const [clients, setClients] = useState([]);
@@ -11,15 +13,9 @@ const ClientList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h2>Lista de Clientes</h2>
-      <ul>
-        {clients.map((client) => (
-          <li key={client.id}>
-            {client.name} - X: {client.x_coordinate}, Y: {client.y_coordinate}
-          </li>
-        ))}
-      </ul>
+      <ClientTable clients={clients} />
     </div>
   );
 };

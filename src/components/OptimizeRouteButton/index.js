@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
+import OptimizeRouteTable from '../OptimizeRouteTable';
+import './styles.scss'
 
 const OptimizeRouteButton = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -19,17 +21,11 @@ const OptimizeRouteButton = () => {
 
   return (
     <div>
-      <button onClick={handleOptimizeRoute}>Otimizar Rota</button>
+      <button onClick={handleOptimizeRoute} className="optimize-route-button">Otimizar Rota</button>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         <h2>Ordem de Visitação</h2>
-        <ul>
-          {optimizedRoute.map((client) => (
-            <li key={client.id}>
-              {`Cliente ${client.name}: X ${client.x_coordinate}, Y ${client.y_coordinate}`}
-            </li>
-          ))}
-        </ul>
-        <button onClick={closeModal}>Fechar</button>
+        <OptimizeRouteTable clients={optimizedRoute} />
+        <button onClick={closeModal} className="optimize-route-button">Fechar</button>
       </Modal>
     </div>
   );
