@@ -20,7 +20,7 @@ const OptimizeRouteButton = () => {
   };
 
   return (
-    <div>
+    <div className="button-container">
       <button onClick={handleOptimizeRoute} className="optimize-route-button">Otimizar Rota</button>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         <h2>Ordem de Visitação</h2>

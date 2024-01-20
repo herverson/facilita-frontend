@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ClientTable from '../ClientTable';
 import { useClientFilter } from '../../stores/ClientFilterContext';
-
+import './styles.scss'
+import OptimizeRouteButton from '../OptimizeRouteButton';
 const ClientList = () => {
   const { nameFilter, emailFilter, phoneFilter } = useClientFilter();
   const [clients, setClients] = useState([]);
@@ -20,9 +21,10 @@ const ClientList = () => {
   );
 
   return (
-    <div className="container">
+    <div className="client-container">
       <h2>Lista de Clientes</h2>
       <ClientTable clients={filteredClients} />
+      <OptimizeRouteButton />
     </div>
   );
 };
