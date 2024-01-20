@@ -21,12 +21,12 @@ const ClientTable = ({ clients }) => {
     <div className="table-container">
       <input type="text" placeholder="Filtrar por nome" onChange={handleNameFilterChange} />
       <input type="text" placeholder="Filtrar por email" onChange={handleEmailFilterChange} />
-      <input type="text" placeholder="Filtrar por phone" onChange={handlePhoneFilterChange} />
+      <input type="text" placeholder="Filtrar por telefone" onChange={handlePhoneFilterChange} />
       <table>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Phone</th>
+            <th>Nome</th>
+            <th>Telefone</th>
             <th>Email</th>
             <th>X</th>
             <th>Y</th>

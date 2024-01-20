@@ -7,7 +7,7 @@ const OptimizeRouteTable = ({ clients }) => {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Nome</th>
             <th>ID</th>
             <th>X</th>
             <th>Y</th>
