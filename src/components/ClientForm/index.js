@@ -37,24 +37,24 @@ const ClientForm = () => {
       console.error('Error adding client:', error);
     }
   };
-  
+
   return (
     <div className="client-form-container">
       <h2>Cadastrar Cliente</h2>
       <form onSubmit={handleFormSubmit}>
-        <label>Name:</label>
+        <label>Nome:</label>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
 
-        <label>Phone:</label>
+        <label>Telefone:</label>
         <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} required />
 
         <label>Email:</label>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
 
-        <label>X Coordinate:</label>
+        <label>Coordenada X:</label>
         <input type="text" value={xCoordinate} onChange={(e) => setXCoordinate(e.target.value)} required />
 
-        <label>Y Coordinate:</label>
+        <label>Coordenada Y:</label>
         <input type="text" value={yCoordinate} onChange={(e) => setYCoordinate(e.target.value)} required />
 
         <button type="submit">Cadastrar</button>
