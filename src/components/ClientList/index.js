@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ClientTable from '../ClientTable';
-import './styles.scss';
+import { useClientFilter } from '../../stores/ClientFilterContext';
 
 const ClientList = () => {
+  const { nameFilter, emailFilter, phoneFilter } = useClientFilter();
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
@@ -12,10 +13,16 @@ const ClientList = () => {
     });
   }, []);
 
+  const filteredClients = clients.filter((client) =>
+    client.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
+    client.email.toLowerCase().includes(emailFilter.toLowerCase()) &&
+    client.phone.toLowerCase().includes(phoneFilter.toLowerCase())
+  );
+
   return (
     <div className="container">
       <h2>Lista de Clientes</h2>
-      <ClientTable clients={clients} />
+      <ClientTable clients={filteredClients} />
     </div>
   );
 };

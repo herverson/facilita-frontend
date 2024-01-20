@@ -1,9 +1,27 @@
 import React from 'react';
+import { useClientFilter } from '../../stores/ClientFilterContext';
 import './styles.scss';
 
 const ClientTable = ({ clients }) => {
+  const { updateNameFilter, updateEmailFilter, updatePhoneFilter } = useClientFilter();
+
+  const handleNameFilterChange = (event) => {
+    updateNameFilter(event.target.value);
+  };
+
+  const handleEmailFilterChange = (event) => {
+    updateEmailFilter(event.target.value);
+  };
+
+  const handlePhoneFilterChange = (event) => {
+    updatePhoneFilter(event.target.value);
+  };
+
   return (
     <div className="table-container">
+      <input type="text" placeholder="Filtrar por nome" onChange={handleNameFilterChange} />
+      <input type="text" placeholder="Filtrar por email" onChange={handleEmailFilterChange} />
+      <input type="text" placeholder="Filtrar por phone" onChange={handlePhoneFilterChange} />
       <table>
         <thead>
           <tr>
